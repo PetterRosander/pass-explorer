@@ -61,11 +61,3 @@ class window():
 
         self.stdscr.refresh()
         self.stdscr.getkey()
-
-win = window()
-try:
-    win.main()
-except Exception as e:
-    win.__del__()
-    print(e)
-del win
