@@ -1,7 +1,0 @@
-README.md
-setup.py
-bin/pass-explorer
-pass_explorer.egg-info/PKG-INFO
-pass_explorer.egg-info/SOURCES.txt
-pass_explorer.egg-info/dependency_links.txt
-pass_explorer.egg-info/top_level.txt
