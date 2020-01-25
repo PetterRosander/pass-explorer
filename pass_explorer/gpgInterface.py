@@ -4,8 +4,8 @@ import subprocess as sub
 
 
 class execHandler():
-    def __init__(self):
-        pass
+    def __init__(self, root):
+        self.root = root
 
     def decrypt(self, file):
         proc = sub.Popen(['gpg', '--batch', '--passphrase-fd',
@@ -33,6 +33,10 @@ class execHandler():
         else:
             return False
 
+    def decryptPassword(self, password):
+        passwdFile = self.root  + self._user + '/' + self._folder + '/' + password + '.gpg'
+        return self.decrypt(passwdFile).rstrip()
+
     @property
     def password(self):
         return self._password
@@ -48,3 +52,11 @@ class execHandler():
     @user.setter
     def user(self, user):
         self._user = user
+
+    @property
+    def folder(self):
+        return self._folder
+
+    @folder.setter
+    def folder(self, folder):
+        self._folder = folder

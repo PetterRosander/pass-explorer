@@ -93,22 +93,22 @@ class window():
             self.next = True
         elif key == 'q':
             self.exit = True
-        elif key == 'KEY_BACKSPACE':
-            self.backspace = True
 
     def __getPassword__(self):
-        key = 0
+        key = ''
         passwd = ''
         while key != '\n':
-            key = self.stdscr.getkey()
-            if self.backspace:
+            key = self.stdscr.getch()
+            if key == 127:
                 self.stdscr.addch(self.y - 1, 9 + len(passwd), ' ')
                 passwd = passwd[:-1]
+            elif key == 10:
+                break
             else:
-                passwd += key
+                passwd += chr(key)
                 self.stdscr.addch(self.y - 1, 9 + len(passwd), '*')
 
-        return passwd[:-1]
+        return passwd
 
     def pickUser(self, users):
         self.next = False

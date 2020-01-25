@@ -19,7 +19,7 @@ class passwordRead():
     """
     Methods
     """
-    def __init__(self, path = os.getenv('HOME') + '/.password-explore/'):
+    def __init__(self, path):
         self.root = path
 
     def readUsers(self):
