@@ -1,0 +1,3 @@
+#!/usr/bin/env python
+import pass_explorer.main as main
+main.run()
